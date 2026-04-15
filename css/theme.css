@@ -290,6 +290,7 @@ body {
     font-family: inherit;
     cursor: pointer;
     min-width: 140px;
+    height: 34px;
 }
 
 .control-select:focus {
@@ -307,6 +308,7 @@ body {
     border-radius: 8px;
     overflow: hidden;
     background: #FFFFFF;
+    height: 34px;
 }
 
 .seg-btn {
