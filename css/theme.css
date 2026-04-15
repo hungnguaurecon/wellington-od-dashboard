@@ -160,7 +160,7 @@ body {
 }
 
 .sidebar-title {
-    background: var(--navy);
+    background: #003b5c;
     color: #FFFFFF;
     padding: 0.8rem 1rem 0.5rem;
     font-size: 0.75rem;
