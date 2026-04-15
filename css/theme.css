@@ -259,7 +259,7 @@ body {
 
 .controls-row {
     display: flex;
-    align-items: flex-end;
+    align-items: stretch;
     gap: 1.5rem;
     padding: 0.8rem 1.2rem;
     border-bottom: 1px solid var(--border-light);
@@ -269,6 +269,7 @@ body {
 .control-group {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 0.3rem;
 }
 
