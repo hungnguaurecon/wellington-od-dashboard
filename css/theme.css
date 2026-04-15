@@ -91,7 +91,7 @@ body {
 }
 
 .nav-btn.active {
-    background: var(--navy);
+    background: #003b5c;
     color: #fff;
 }
 
