@@ -290,7 +290,6 @@ body {
     font-family: inherit;
     cursor: pointer;
     min-width: 140px;
-    height: 34px;
 }
 
 .control-select:focus {
@@ -308,7 +307,6 @@ body {
     border-radius: 8px;
     overflow: hidden;
     background: #FFFFFF;
-    height: 34px;
 }
 
 .seg-btn {
@@ -320,6 +318,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.15s, color 0.15s;
+    line-height: 1.2;
 }
 
 .seg-btn:not(:last-child) {
