@@ -150,7 +150,7 @@ const DashboardMap = (() => {
             const color = colors[idx % colors.length];
             idx++;
 
-            let html = `<div style="min-width:240px;font-family:sans-serif">`;
+            let html = `<div style="min-width:240px">`;
             html += `<h4 style="margin:0 0 6px 0;color:#333">${label}</h4>`;
             html += `<ul style="margin:0;padding-left:18px">`;
             group.analyses.sort((a, b) => a.display_name.localeCompare(b.display_name));
@@ -275,6 +275,7 @@ const DashboardMap = (() => {
         if (statEl) statEl.textContent = maxTrips.toLocaleString();
 
         // Fit bounds: 10 km around link center
+        _map.invalidateSize();
         if (linkLat != null && linkLon != null) {
             const kmRadLon = 10 / (111 * Math.cos(linkLat * Math.PI / 180));
             _map.fitBounds([
@@ -502,7 +503,7 @@ const DashboardMap = (() => {
         _legend = L.control({ position: 'topleft' });
         _legend.onAdd = function () {
             const div = L.DomUtil.create('div', 'map-legend');
-            div.innerHTML = `<div style="background:rgba(255,255,255,0.92);padding:12px 18px;border-radius:8px;box-shadow:0 1px 5px rgba(0,0,0,0.25);font-family:sans-serif;font-size:14px;">
+            div.innerHTML = `<div style="background:rgba(255,255,255,0.92);padding:12px 18px;border-radius:8px;box-shadow:0 1px 5px rgba(0,0,0,0.25);font-size:14px;">
                 <div style="font-weight:600;margin-bottom:6px;color:#333;">% of Max Trips</div>
                 <div style="height:18px;width:270px;border-radius:5px;background:${Symbology.getLegendGradient()};"></div>
                 <div style="display:flex;justify-content:space-between;margin-top:4px;color:#555;font-size:12px;">
