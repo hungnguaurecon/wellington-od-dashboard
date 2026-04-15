@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OD Select Link Analysis Dashboard</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- App theme -->
+    <link rel="stylesheet" href="css/theme.css" />
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────────────── -->
+<header class="nav-header">
+    <div class="nav-brand">
+        <div class="nav-title">Wellington State Highway Strategic Plan</div>
+        <div class="nav-subtitle">Origin-Destination Selected Link Analysis &middot; TomTom</div>
+    </div>
+    <nav class="nav-links">
+        <button class="nav-btn" data-page="index">Index</button>
+        <button class="nav-btn" data-page="overview">Overview</button>
+        <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+    </nav>
+</header>
+
+<!-- ── Index page ─────────────────────────────────────────────────── -->
+<div id="page-index" class="page-view">
+    <div class="index-content">
+        <h2>Welcome</h2>
+        <p>Interactive visualization of TomTom OD Select Link analysis results
+           for the Wellington region.</p>
+        <p>Use the navigation above to explore:</p>
+        <ul>
+            <li><strong>Overview</strong> &mdash; map of all analysis locations with clickable markers</li>
+            <li><strong>Dashboard</strong> &mdash; detailed traffic-flow maps with filters</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ── Overview page ──────────────────────────────────────────────── -->
+<div id="page-overview" class="page-view">
+    <div class="overview-content">
+        <p class="overview-intro">Click a marker to see all analyses at that location, then click an analysis name to view it on the Dashboard.</p>
+        <div id="overview-map"></div>
+    </div>
+</div>
+
+<!-- ── Dashboard page ─────────────────────────────────────────────── -->
+<div id="page-dashboard" class="page-view active">
+    <div class="dashboard-layout">
+
+        <!-- Sidebar filters -->
+        <aside class="sidebar">
+            <div class="sidebar-title"><span>&#9679;</span> ANALYSIS PANEL</div>
+            <div class="sidebar-body">
+                <div class="stat-box" id="stat-trips">
+                    <div class="stat-label">Trips recorded</div>
+                    <div class="stat-value" id="stat-trips-value">—</div>
+                    <div class="stat-period" id="stat-period">—</div>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">Route</div>
+                    <select id="f-route" class="filter-select"></select>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">Location</div>
+                    <select id="f-location" class="filter-select"></select>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">Direction</div>
+                    <select id="f-direction" class="filter-select"></select>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">Day of Week</div>
+                    <select id="f-day_type" class="filter-select"></select>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">Vehicle Type</div>
+                    <select id="f-vehicle_type" class="filter-select"></select>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">Period</div>
+                    <select id="f-period" class="filter-select"></select>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Controls row -->
+            <div class="controls-row">
+                <div class="control-group">
+                    <div class="control-label">Time Period</div>
+                    <select id="f-time-period" class="control-select"></select>
+                </div>
+                <div class="control-group">
+                    <div class="control-label">Trip Direction</div>
+                    <div class="segmented-control" id="direction-toggle">
+                        <button class="seg-btn active" data-dir="both">All</button>
+                        <button class="seg-btn" data-dir="incoming">Incoming</button>
+                        <button class="seg-btn" data-dir="outgoing">Outgoing</button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label">Annotations</div>
+                    <div class="segmented-control" id="annot-toggle">
+                        <button class="seg-btn active" data-annot="on">On</button>
+                        <button class="seg-btn" data-annot="off">Off</button>
+                    </div>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────────────── -->
+<footer class="dashboard-footer">
+    Source: TomTom OD Select Link API &middot; Aurecon
+</footer>
+
+<!-- ── Scripts ────────────────────────────────────────────────────── -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+<script src="js/symbology.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/map.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
